@@ -1,4 +1,21 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %> </p>
+  
+
+<p >
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.price %>
+</p>
+
+
+  <strong>photo:</strong>
+<p>
+  <%= image_tag @item.photo.url(:large) %>
+</p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>

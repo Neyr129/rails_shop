@@ -10,8 +10,15 @@
       </ul>
     </div>
   <% end %>
+   
+  <%= f.text_field :name %>
 
+  <div>
+    <%= f.file_field :photo %>
+  </div>
+<br>
   <div class="actions">
     <%= f.submit %>
   </div>
+ 
 <% end %>

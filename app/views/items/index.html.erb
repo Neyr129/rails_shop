@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Items</h1>
+<div style="position:abolute; float: left">
+  <%= button_to "New Item", new_item_path, :method => :get %>
+</div>
+  <h1>Listing Items</h1>
 
 <table>
   <thead>
@@ -10,32 +13,32 @@
   </thead>
 
   <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <h1>Items</h1>
-        <div>
-          <ul class="item_list">
-            <% @items.each do |item| %>
-              <li class="item_block">
-                <%= item.name %>  
-              </li>
-            <% end %> 
-          </ul>
-        </div>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <div>
+    <ul class="index_table" type = "none">
+      <% @items.each do |item| %>      
+        <li style="float:left">  
+          <div class="col-md-3">   
+            <%= image_tag item.photo.url(:small)%>
+              <p>
+
+                <ul>
+                  <li> <%= item.name %></li>
+                  <li> <%= link_to 'Show', item, :style => "bottom:0; position:relative"%> </li>
+                  <li> <%= link_to 'Edit', edit_item_path(item), :style => "bottom:0; position:relative" %> </li>
+                  <li> <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :style => "bottom:0; position:relative" %> </li>
+                </ul>
+              </p>
+          </div> 
+        </li>
+      <% end %>
+    </ul>
+  </div>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Item', new_item_path %>
 
 
 
 
- 
+
 
