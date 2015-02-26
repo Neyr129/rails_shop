@@ -1,31 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<div style="position:abolute; float: left">
-  <%= button_to "New Item", new_item_path, :method => :get %>
-</div>
+
   <h1>Listing Items</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <div>
-    <ul class="index_table" type = "none">
+ 
+  <div class = "button-new-div">
+    <%= button_to "Add New Item", new_item_path, :method => :get, :style => 'float:right; margin-right:74px; padding-left:3px;' %>
+  </div>
+  
+  <div class = "index-table">
+  
+    <ul type = "none"  >
       <% @items.each do |item| %>      
         <li style="float:left">  
           <div class="col-md-3">   
             <%= image_tag item.photo.url(:small)%>
               <p>
-
-                <ul>
-                  <li> <%= item.name %></li>
-                  <li> <%= link_to 'Show', item, :style => "bottom:0; position:relative"%> </li>
-                  <li> <%= link_to 'Edit', edit_item_path(item), :style => "bottom:0; position:relative" %> </li>
-                  <li> <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :style => "bottom:0; position:relative" %> </li>
+                <ul type = "none" >
+                  <li> <%= item.name %> </li>
+                  <li> <%= link_to 'Show', item, :style => "bottom:0; float:left", :class => "button"%>  </li>
+                  <li> <%= link_to 'Edit' , edit_item_path(item), :style => "bottom:0; position:relative", :class => "button" %> </li>
+                  <li> <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :style => "bottom:0; position:relative",:class => "button" %> </li>
                 </ul>
               </p>
           </div> 
@@ -33,8 +27,7 @@
       <% end %>
     </ul>
   </div>
-  </tbody>
-</table>
+ 
 
 
 

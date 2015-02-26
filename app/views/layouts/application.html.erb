@@ -5,30 +5,49 @@
     <%= stylesheet_link_tag "application", media: "all",
                                            "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
+    <script type="text/javascript" src="js/jquery-galleryview-1.0.1/jquery.timers-1.1.2.js"></script>
     <%= csrf_meta_tags %>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
+
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
+
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-          <%= link_to "sample app", '#', id: "logo" %>
-          <nav>
-            <ul class="nav pull-right">
-              <li><%= link_to "Home",    '#' %></li>
-              <li><%= link_to "Help",    '#' %></li>
-              <li><%= link_to "Sign in", '#' %></li>
-            </ul>
-          </nav>
+          <%= link_to "Shop", '#', {:style => "float:left",:class=>"navbar-brand"}  %> 
+          <div class="navbar-header", style:"float:right" >
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" > 
+              <ul class="nav navbar-nav">
+                <li><%= link_to "Home", '#' %></li>
+                <li><%= link_to "Help", '#' %></li>
+                <li><%= link_to "Sign in", '#' %></li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
+      </nav>
     </header>
+
+
     <div class="container">
       <%= yield %>
     </div>
      <div class="container">
     </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="js/bootstrap-image-gallery.min.js"></script>
   </body>
 </html>

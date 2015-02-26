@@ -1,5 +1,5 @@
-@import "bootstrap";
-
+/*@import "bootstrap";
+*/
  
 
 /* universal */
@@ -10,6 +10,10 @@ html {
 
 body {
   padding-top: 60px;
+  /*gallery */
+   background: #000000 url(img/header.jpg) no-repeat center top;
+   color: black;
+  /**********/
 }
 
 section {
@@ -84,3 +88,64 @@ li.index_tables {
   color: #fff;
   text-decoration: none;
 }
+
+.navbar-brand .navbar-my{
+
+}
+
+.navbar-header {
+  float:right !important;
+}
+
+.button-new-div {
+  margin-bottom : 55px  ;
+}
+
+/* index_table */
+
+ 
+
+.index-table ul ul{ 
+  padding-left:0px;
+
+}
+
+.index-table ul ul li a{
+  
+}
+
+.index-table div{
+   }
+
+
+.button {
+  display: inline-block;
+  padding-bottom:0px !important;
+  padding-top:0px !important;
+  border-width: 1px !important;
+  border-style: solid;
+  background: #6B6969;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white !important;
+  border-color: red;
+  font-weight: bold;
+  width: 100px !important;
+  margin-bottom: 1px;
+}
+
+
+/* gallery */
+
+#gallery_wrap {
+  width: 820px;
+  height: 368px;
+  padding: 25px;
+  background: url(img/border.png) top left no-repeat;
+}
+
+ 
+a:hover {text-decoration: none;}
+   
+h3 {border-bottom-color: white;}

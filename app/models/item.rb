@@ -9,6 +9,8 @@ class Item < ActiveRecord::Base
 
 	validates_attachment :photo,
 		:size => { :in => 0..10.megabytes },
-	    :content_type => { :content_type => /^image\/(jpeg|png|gif)$/ }
-	    
+	    :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+	
+
+	 
 end
