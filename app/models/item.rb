@@ -1,16 +1,12 @@
-class Item < ActiveRecord::Base
-	has_attached_file :photo, 
-		:path => ":rails_root/public/system/:class/:attachement/:id/:basename_:style.:extension",
-		:url => "/system/:class/:attachement/:id/:basename_:style.:extension",
-		:styles => {
-		  :small    => ['100x100#',  :jpg, :quality => 70],
-		  :large    => ['600>',      :jpg, :quality => 70],
-		}
+class Item < ActiveRecord::Base 
+	ratyrate_rateable 'stars'
+	has_many :images
+	belongs_to :user  
+	has_many :ratings
+	has_many :positions
+	has_many :carts, through: :positions
 
-	validates_attachment :photo,
-		:size => { :in => 0..10.megabytes },
-	    :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
-	
-
-	 
+	def average_rating
+		ratings.sum(:score) / ratings.size
+	end
 end

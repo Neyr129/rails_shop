@@ -1,0 +1,2 @@
+module RatingsControllerHelper
+end

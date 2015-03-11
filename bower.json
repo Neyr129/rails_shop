@@ -1,0 +1,21 @@
+{
+  "name": "pic_app",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Neyr129/rails_shop",
+  "authors": [
+    "Neyr <neyr129@icloud.com>"
+  ],
+  "description": "atata",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+  "dependencies": {
+    "bootstrap"
+  }
+}

@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= link_to 'Back', carts_path, :class => "btn button"%>
+<%= link_to 'Submit Purchase', submit_cart_path(cart_id: @cart.id), :class => "btn button"%>
+
+
+<br><br> 
+
+<% @cart.items.each do |item| %> 
+  <div style = "display:inline ">
+	    <%= link_to (image_tag(generate_image(item))) , item  %>
+	    <p><%= link_to 'Delete from Cart',  throw_away_path(item_id: item.id, cart_id: @cart) , :class => "button", :style => "font-size: 10px" %>  </p>
+	    <p><%= item.positions.last.quantity %></p>
+	</div>
+<% end %>

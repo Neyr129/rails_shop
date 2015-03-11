@@ -1,27 +1,41 @@
-<p id="notice"><%= notice %> </p>
-  
 
+
+
+<p id="notice"><%= notice %> </p>
+ 
 <p >
   <strong>Name:</strong>
   <%= @item.name %>
-</p>
+</p>  
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.price %>
-</p>
+<%= link_to 'Back', items_path, :class => "button"%>
+<br>
+<% if can? :destroy, @item %>  
+  <%= link_to 'Destroy', @item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button" %> 
+<% end %> 
+
+<% if can? :destroy, @item %>   
+  <div class="actions">
+    <%= link_to 'Add Image', add_image_path(@item),  :class => "button" %>
+  </div>
+<% end %>
+
+<%= link_to 'Add to Cart', push_item_path(user_id: current_user.id, item_id: @item.id), :class => "button" %> 
+
+ 
+<div class="small-2 large-2 columns">
+    <%= imdb_style_rating_for @item, current_user%>
+  </div>
+  <br>
+  <div class="small-2 large-4 columns">
+    <% if current_user %>
+      Stars: <%= rating_for @item, "stars" %>
+    <% end %>
+  </div>
 
 
-  <strong>photo:</strong>
-<p>
-  <%= image_tag @item.photo.url(:large) %>
-</p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
-
-
- <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+ <!-- The Bootstrap Image Gallery lightbox -->
 <div id="blueimp-gallery" class="blueimp-gallery">
     <!-- The container for the modal slides -->
     <div class="slides"></div>
@@ -34,36 +48,47 @@
     <ol class="indicator"></ol>
     <!-- The modal dialog, which will be used to wrap the lightbox content -->
     <div class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"></h4>
-                </div>
-                <div class="modal-body next"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left prev">
-                        <i class="glyphicon glyphicon-chevron-left"></i>
-                        Previous
-                    </button>
-                    <button type="button" class="btn btn-primary next">
-                        Next
-                        <i class="glyphicon glyphicon-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body next"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left prev">
+              <i class="glyphicon glyphicon-chevron-left"></i>
+              Previous
+            </button>
+            <button type="button" class="btn btn-primary next">
+              Next
+              <i class="glyphicon glyphicon-chevron-right"></i>
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 </div>
 
-<div id="links">
-    <a href="images/banana.jpg" title="Banana" data-gallery>
-        <img src="images/1.jpg" alt="Banana">
-    </a>
-    <a href="images/apple.jpg" title="Apple" data-gallery>
-        <img src="images/2.jpg" alt="Apple">
-    </a>
-    <a href="images/orange.jpg" title="Orange" data-gallery>
-        <img src="images/3.jpg" alt="Orange">
-    </a>
-</div>
+
+<div id="links container" class="image_div">
+<% if @item.images.count == 0 %>
+    <%= image_tag('/images/missing_small.jpg') %> 
+<% else %>
+    <% @item.images.each do |image| %>   
+      <%= link_to image_tag(image.img.url(:small)) , image.img.url(:large),  'data-gallery' => '' %>
+    <% end %>
+  </div>
+<%end%>
+
+<!-- права на просмотр другого юзера -->
+<!-- activeadmin авторизация для админки-->
+
+
+
+<!-- ДОДЕЛАТЬ КНОПКУ DESTROY В ПРОФИЛЕ ЮЗЕРА -->
+<!-- доделать просмотр итемов без авторизации --> 
+<!-- Bouer -->
+<!-- active support - набор полезных функций -->
+
+

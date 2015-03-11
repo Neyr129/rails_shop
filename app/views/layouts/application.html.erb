@@ -3,12 +3,15 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag "application", media: "all",
-                                           "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-    <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
-    <script type="text/javascript" src="js/jquery-galleryview-1.0.1/jquery.timers-1.1.2.js"></script>
+                                       "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %> 
+    <%= yield :javascript_includes %>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <!-- звездочки -->
+      <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+    <!--  -->
     <%= csrf_meta_tags %>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,19 +23,28 @@
     <header>
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-          <%= link_to "Shop", '#', {:style => "float:left",:class=>"navbar-brand"}  %> 
+          <%= link_to "Shop", items_path, {:style => "float:left",:class=>"navbar-brand"}  %> 
           <div class="navbar-header", style:"float:right" >
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+            <!-- <button type="button" class="navbar-togglзe collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-            </button>
+            </button> -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" > 
-              <ul class="nav navbar-nav">
-                <li><%= link_to "Home", '#' %></li>
-                <li><%= link_to "Help", '#' %></li>
-                <li><%= link_to "Sign in", '#' %></li>
+              <ul class="nav navbar-nav header">
+                <li><%= link_to "Home", items_path %></li>
+                <li><%= link_to "Help", '#' %></li> 
+                <!-- Аутентификация -->
+                <% if user_signed_in? %>
+                    <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>        
+                    <li><%= link_to current_user.email , current_user%><li>  
+                <% else %>
+                    <li>
+                      <%= link_to 'Login', new_user_session_path %> </li>  <li> <%= link_to 'Sign up', new_user_registration_path %>
+                    </li>
+                <% end %>
+                <!-- ############## -->
               </ul>
             </div>
           </div>
@@ -48,6 +60,6 @@
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-    <script src="js/bootstrap-image-gallery.min.js"></script>
+     
   </body>
 </html>

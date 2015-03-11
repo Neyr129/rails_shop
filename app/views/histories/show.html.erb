@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+	<table  class = "table">
+		<thead>
+			<tr>
+			  <th> Name </th> 
+			  <th> Price </th> 
+			  <th> Quantity </th> 
+			  <th> Bought at </th> 
+			</tr>
+		</thead>	
+		<tbody>
+		<% @history.item_records.each do |record| %>
+			<tr>
+				<th><%= record.name %></th>
+				<th><%= record.price %></th>
+				<th><%= record.quantity %></th>
+				<th><%= record.created_at %></th> 			
+			</tr>
+		<% end %>	
+		</tbody> 
+	</table>
+
+
+
+
+<%= link_to 'Edit', edit_history_path(@history) %> |
+<%= link_to 'Back', histories_path %>

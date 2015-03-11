@@ -2,21 +2,31 @@
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
       <ul>
-      <% @item.errors.full_messages.each do |message| %>
+        <% @item.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-   
-  <%= f.text_field :name %>
 
+  <text> Name:</text>
+  <br>
+  <%= f.text_field :name %>
+  <br>
+  
+  <text> Price:</text>
+  <br>
+  <%= f.text_field :price %>
+  <br>
+  
   <div>
-    <%= f.file_field :photo %>
-  </div>
-<br>
+    <%= f.fields_for :image, @item.images do |image_form|%>
+      <%= image_form.file_field :img%>
+    <% end %>
+  </div>  
+  
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

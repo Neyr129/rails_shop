@@ -1,0 +1,178 @@
+@import "bootstrap";
+ 
+
+/* UNIVERSAL */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+  /*gallery */
+  color: black;
+  /**********/
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* TYPOGRAPHY */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #999;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* index table */
+.index_table {
+    text-align: bottom;
+}
+
+
+li.index_tables {
+  display: inline;
+}
+ 
+.index-table ul ul{ 
+  padding-left:0px; 
+}
+
+/* HEADER */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-brand .navbar-my{
+
+}
+
+.navbar-header {
+  float:right !important;
+}
+
+.button-new-div {
+  margin-bottom : 55px  ;
+}
+
+/* INDEX_TABLE */
+
+ 
+.button {
+  display: inline-block;
+  padding-bottom:0px !important;
+  padding-top:0px !important;
+  border-width: 1px !important;
+  border-style: solid;
+  background: #6B6969;
+  padding: 0px;
+  text-align: center;
+  border-radius: 5px;
+  color: white !important;
+  border: 1px red solid !important;
+  font-weight: bold;
+  width: 100px !important;
+  margin-bottom: 1px;
+}
+
+.button:hover {
+  text-decoration: none;
+}
+
+
+/* GALLERY */
+
+#gallery_wrap {
+  width: 820px;
+  height: 368px;
+  padding: 25px;
+  background: url(img/border.png) top left no-repeat;
+}
+
+ 
+ 
+h3 {border-bottom-color: white;}
+
+/*.image_div {
+  max-width : 428px !important; 
+  border-style:solid;
+}
+
+.image_div img{
+  margin: 2px 0px 2px 2px;
+  border-style:solid;
+  border-color: red;
+}*/
+
+ul.items {
+  list-style-type: none;
+}
+
+ul.items-info li{
+  width: 100px;
+  list-style-type: none;
+}
+
+.navbar-text {
+  height: 20px;
+}
+
+.header p{
+  margin-top: 0px;
+  padding-top: 12px;
+}
+
+#name-p {
+  height: 36px;
+}
+
+#name-p a:hover{
+  background-color: white; 
+}
